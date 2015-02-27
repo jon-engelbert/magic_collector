@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class='pane'>
+        <!-- Section 1 -->
+        <section>
+            <div class='header'>
+                <h1>All Colors</h1>
+                <a href='{{url_for("color.new") }}'>Create New Color</a>
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li><strong>{{message}} </strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+                {% for i in colors %}
+
+                <div>
+                    <p><a class='color_header'
+                          href='{{url_for("card.menu", color_id = i.id)}}'>{{i.name}}</a></p>
+
+                    <p>
+                        <a href='{{url_for("color.edit", color_id = i.id)}}'>Edit</a>
+                        <a href='{{url_for("color.delete", color_id = i.id)}}'>Delete</a>
+                        <a href='{{url_for("card.menu", color_id = i.id)}}'>Menu</a>
+                    </p>
+
+                </div>
+
+                {% endfor %}
+            </div>
+
+        <!-- Section 2 -->
+        <section>
+            <div>
+
+            </div>
+        </section>
+    </section>
+
+
+</body>
+</html>

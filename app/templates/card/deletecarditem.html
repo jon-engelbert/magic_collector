@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<h1> Are you sure you want to delete {{card.name}}? </h1>
+
+<form action='/card/colors/{{color_id}}/{{card.id}}/delete' method='post'>
+    <input type='submit' , value='Delete'>'
+</form>
+<a href="{{url_for('card.menu', color_id = card.color_id)}}"> Cancel </a>
+
+</body>
+</html>
+
